@@ -1,1 +1,94 @@
 @import "compass_twitter_bootstrap";
+
+$orange: #e94e1b;
+$brown: #693c10;
+$yellow: #f9b233;
+$marzipan: #f7dca8;
+$green: #0b8e36;
+$blue: #312783;
+$red: #be1522;
+
+$black: #000000;
+
+body{
+  background: tint($marzipan, 30);
+}
+
+a{
+  color: $black;
+  &:hover, &:active, &:visited, &:focus{
+    text-decoration: none;
+    color: $black;
+  }
+}
+
+.sidebar{
+  float:left;
+  background: $marzipan;
+  width:250px;
+  height: 2000px;
+  .logo{
+    img{
+      padding: 30px;
+      display: block;
+      box-sizing: border-box;
+    }
+  }
+  ul{
+    list-style: none;
+    margin:0 30px 30px;
+    padding: 0 0 25px 0;
+    border-bottom: 1px solid $brown;
+    &:last-child{
+      border: none;
+    }
+    li{
+      @include text-shadow(1px 1px 1px rgba(0,0,0,.2));
+      a{
+        padding: 1em;
+        display: block;
+        background: shade($marzipan, 3);
+        @include transition-property("background-color, padding");
+        @include transition-duration(".25s");
+        i{
+          margin-right: 10px;
+        }
+      }
+      &:hover, &:focus{
+        a{
+          padding-left:2em;
+          //background: shade($marzipan, 6);
+          background: adjust-lightness($yellow, 5);
+        }
+      }
+      &:first-Child{
+        a{
+          @include border-radius(5px 5px 0 0);
+        }
+      }
+      &:last-Child{
+        a{
+          @include border-radius(0 0 5px 5px);
+        }
+      }
+      &.active{
+        &:before{
+          content: "";
+          float:left;
+          margin-top:1em;
+          height:0px;
+          width:0px;
+          border-top: 10px solid transparent;
+          border-left: 10px solid $marzipan;
+          border-bottom: 10px solid transparent;
+          border-right: 10px solid transparent;
+        }
+      }
+    }
+  }
+}
+
+.main{
+  float:left;
+  background: tint($marzipan, 30);
+}

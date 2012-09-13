@@ -12,24 +12,30 @@
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        
+
         <link rel="stylesheet" href="styles/main.css"/>
         <script src="scripts/vendor/modernizr.min.js"></script>
     </head>
     <body>
-    <div class="container" style="margin-top:50px">
-        <div class="hero-unit">
-            <h1>Cheerio!</h1>
-            <p>You now have</p>
-            <ul>
-                <li>HTML5 Boilerplate</li>
-                <li>Twitter Bootstrap</li>
-                <li>Twitter Bootstrap plugins</li>
-            </ul>
-            <p>installed.</p>
-            <h3>Enjoy coding! - Yeoman</h3>
+      <div class="sidebar">
+        <div class="logo">
+          <img src="/images/hoodie_logo.png" alt="">
         </div>
-    </div>
+        <div class="menu">
+          <ul>
+            <li class="active"><a href="#"><i class="icon-cog"></i>App settings</a></li>
+            <li><a href="#"><i class="icon-wrench"></i>Workers</a></li>
+            <li><a href="#"><i class="icon-signal"></i>Stats</a></li>
+          </ul>
+          <ul class="help">
+            <li><a href="#">Hoodie on Github</a></li>
+            <li><a href="#">Hoodie Docs</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="main">
+
+      </div>
 
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
@@ -39,8 +45,8 @@
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="scripts/vendor/jquery.min.js"><\/script>')</script>
-        
-        
+
+
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -49,7 +55,7 @@
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));
         </script>
-    
+
     <!-- build:js scripts/plugins.js -->
     <script src="scripts/vendor/bootstrap/bootstrap-affix.js"></script>
     <script src="scripts/vendor/bootstrap/bootstrap-alert.js"></script>
