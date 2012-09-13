@@ -1,5 +1,8 @@
 @import "compass_twitter_bootstrap";
 
+
+// COLORS ---------------------------------------------------
+
 $orange: #e94e1b;
 $brown: #693c10;
 $yellow: #f9b233;
@@ -9,6 +12,43 @@ $blue: #312783;
 $red: #be1522;
 
 $black: #000000;
+
+// FONTS ----------------------------------------------------
+//
+@font-face {
+    font-family: 'QuicksandBold';
+    src: url('fonts/Quicksand_Bold-webfont.eot');
+    src: url('fonts/Quicksand_Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Quicksand_Bold-webfont.woff') format('woff'),
+         url('fonts/Quicksand_Bold-webfont.ttf') format('truetype'),
+         url('fonts/Quicksand_Bold-webfont.svg#QuicksandBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'QuicksandBook';
+    src: url('fonts/Quicksand_Book-webfont.eot');
+    src: url('fonts/Quicksand_Book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Quicksand_Book-webfont.woff') format('woff'),
+         url('fonts/Quicksand_Book-webfont.ttf') format('truetype'),
+         url('fonts/Quicksand_Book-webfont.svg#QuicksandBook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'QuicksandLight';
+    src: url('fonts/Quicksand_Light-webfont.eot');
+    src: url('fonts/Quicksand_Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Quicksand_Light-webfont.woff') format('woff'),
+         url('fonts/Quicksand_Light-webfont.ttf') format('truetype'),
+         url('fonts/Quicksand_Light-webfont.svg#QuicksandLight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+// MIXINS ---------------------------------------------------
 
 @mixin menuItemArrow($color: $marzipan){
   content: "";
@@ -22,8 +62,15 @@ $black: #000000;
   border-right: 10px solid transparent;
 }
 
+// STYLES ---------------------------------------------------
+
+
+/* apply a natural box layout model to all elements */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
 body{
-  background: tint($marzipan, 30);
+  background: tint($marzipan, 50);
+  font: normal 1em/1.4 'QuicksandBook', Arial, sans-serif;
 }
 
 a{
@@ -48,28 +95,27 @@ a{
   }
   ul{
     list-style: none;
-    margin:0 30px 30px;
+    margin:0 30px 25px;
     padding: 0 0 25px 0;
-    border-bottom: 1px solid $brown;
+    border-bottom: 1px solid shade($marzipan, 10);
     &:last-child{
       border: none;
     }
     li{
       @include text-shadow(1px 1px 1px rgba(0,0,0,.2));
       a{
-        padding: 1em;
+        padding: 1.1em 1em 0.7em 1em;
         display: block;
         background: shade($marzipan, 3);
         @include transition-property("background-color, padding");
         @include transition-duration(".25s");
         border-bottom: 1px solid shade($marzipan, 10);
         i{
-          margin-right: 10px;
+          margin: -2px 10px 0 0;
         }
-      }
-      &:hover, &:focus{
-        a{
+        &:hover, &:focus{
           padding-left:2em;
+          outline: none;
           background: adjust-lightness($yellow, 5);
         }
       }
@@ -92,19 +138,58 @@ a{
     }
   }
   &.secondary{
-    background: tint($marzipan, 15);
+    background: tint($marzipan, 25);
     padding-top: 116px;
     ul{
       li{
         a{
           background: $marzipan;
           &:hover, &:focus{
+            outline: none;
             background: adjust-lightness($yellow, 5);
           }
         }
         &.active{
           &:before{
-            @include menuItemArrow(tint($marzipan, 15));
+            @include menuItemArrow(tint($marzipan, 25));
+          }
+        }
+        &.worker{
+          a{
+            &:after{
+              content: "";
+              margin-top:-2px;
+              width: 1em;
+              height: 1em;
+              background: tint($brown, 30);
+              border: 1px solid $brown;
+              float:right;
+              @include border-radius(50%);
+            }
+          }
+          &.running{
+            a{
+              &:after{
+                background: tint($green, 50);
+                border: 1px solid $green;
+              }
+            }
+          }
+          &.error{
+            a{
+              &:after{
+                background: tint($red, 30);
+                border: 1px solid $red;
+              }
+            }
+          }
+          &.warning{
+            a{
+              &:after{
+                background: tint($yellow, 30);
+                border: 1px solid $yellow;
+              }
+            }
           }
         }
       }
@@ -113,6 +198,26 @@ a{
 }
 
 .main{
-  float:left;
-  background: tint($marzipan, 30);
+  width: 100%;
+  position: absolute;
+  padding-left: 500px;
+  z-index: -10;
+  height: 1000px;
+  .header{
+    .title{
+      margin: 15px 0 0 30px;
+      font: normal 4em/1.4 'QuicksandBook', Arial, sans-serif;
+      text-transform: uppercase;
+    }
+  }
+  .body{
+    max-width: 700px;
+    margin: 0 30px;
+  }
+}
+
+.alert-success{
+  background: tint($green, 60);
+  border-color: $green;
+  color: shade($green, 30);
 }

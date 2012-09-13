@@ -36,15 +36,23 @@
       <div class="secondary sidebar">
         <div class="menu">
           <ul>
-            <li class="active"><a href="#">Mail Out</a></li>
-            <li><a href="#">Mail In</a></li>
-            <li><a href="#">Image Resizer</a></li>
-            <li><a href="#">Log</a></li>
+            <li class="active worker running"><a href="#">Email Out</a></li>
+            <li class="worker running"><a href="#">Email In</a></li>
+            <li class="worker error"><a href="#">Image Resizer</a></li>
+            <li class="worker warning"><a href="#">Log</a></li>
           </ul>
         </div>
       </div>
       <div class="main">
-
+        <div class="header">
+          <h1 class="title">Whiskie</h1>
+        </div>
+        <div class="body">
+          <h2>Email Out</h2>
+          <div class="alert alert-success">
+            This worker is running normally
+          </div>
+        </div>
       </div>
 
         <!--[if lt IE 7]>
