@@ -62,6 +62,7 @@ $black: #000000;
   border-right: 10px solid transparent;
 }
 
+
 // STYLES ---------------------------------------------------
 
 
@@ -114,19 +115,21 @@ a{
           margin: -2px 10px 0 0;
         }
         &:hover, &:focus{
-          padding-left:2em;
+          padding-left:1.25em;
           outline: none;
           background: adjust-lightness($yellow, 5);
         }
       }
       &:first-Child{
         a{
-          @include border-radius(5px 5px 0 0);
+          @include border-top-left-radius(5px);
+          @include border-top-right-radius(5px);
         }
       }
       &:last-Child{
         a{
-          @include border-radius(0 0 5px 5px);
+          @include border-bottom-left-radius(5px);
+          @include border-bottom-right-radius(5px);
           border-bottom: none;
         }
       }
@@ -206,9 +209,35 @@ a{
   .header{
     .title{
       margin: 15px 0 0 30px;
-      font: normal 4em/1.4 'QuicksandBook', Arial, sans-serif;
+      font: normal 4em/1.4 'QuicksandLight', Arial, sans-serif;
+      color: shade($brown, 30);
       text-transform: uppercase;
     }
+  }
+  p{
+
+  }
+  a.button{
+    @include text-shadow(1px 1px 1px rgba(0,0,0,.2));
+    padding: 1em 1em 0.8em 1em;
+    display: inline-block;
+    background: shade($marzipan, 3);
+    @include transition-property("background-color, padding");
+    @include transition-duration(".25s");
+    @include border-radius(5px);
+    margin: .5em 0;
+    i{
+      margin: -2px 10px 0 0;
+    }
+    &:hover, &:focus{
+      padding-left:1.25em;
+      outline: none;
+      background: adjust-lightness($yellow, 5);
+    }
+  }
+  h2{
+    font: normal 1.5em/1.4 'QuicksandBook', Arial, sans-serif;
+    color: shade($brown, 20);
   }
   .body{
     max-width: 700px;
@@ -216,8 +245,11 @@ a{
   }
 }
 
-.alert-success{
-  background: tint($green, 60);
-  border-color: $green;
-  color: shade($green, 30);
+.alert{
+  padding: 1em 1em 0.8em 1em;
+  &.alert-success{
+    background: tint($green, 60);
+    border-color: $green;
+    color: shade($green, 30);
+  }
 }
