@@ -13,8 +13,19 @@ $red: #be1522;
 
 $black: #000000;
 
+
+// ALTERNATIVE COLORS ---------------------------------------
+
+//$pomegranate: #f65034;
+//$flame-pea: #d04521;
+//$flush-orange: #fb8101;
+//$golden-grass: #e0ad2a;
+//$marzipan: #d8d6be;
+//$coconut-cream: #f8fadf;
+$blue: #96b8be;
+
 // FONTS ----------------------------------------------------
-//
+
 @font-face {
     font-family: 'QuicksandBold';
     src: url('fonts/Quicksand_Bold-webfont.eot');
@@ -62,6 +73,39 @@ $black: #000000;
   border-right: 10px solid transparent;
 }
 
+// BOOTSTRAP MODS -------------------------------------------
+
+textarea,
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"],
+.uneditable-input {
+  background-color: $inputBackground;
+  border: 1px solid $inputBorder;
+  @include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+  @include transition(#{border linear .2s, box-shadow linear .2s});
+
+  // Focus state
+  &:focus {
+    //border-color: rgba(82,168,236,.8);
+    border-color: rgba($brown,.8);
+    outline: 0;
+    outline: thin dotted \9; /* IE6-9 */
+    @include box-shadow(#{inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba($marzipan,1)});
+  }
+}
+
 
 // STYLES ---------------------------------------------------
 
@@ -71,6 +115,10 @@ $black: #000000;
 
 body{
   background: tint($marzipan, 50);
+  font: normal 1em/1.4 'QuicksandBook', Arial, sans-serif;
+}
+
+input, button, select, textarea {
   font: normal 1em/1.4 'QuicksandBook', Arial, sans-serif;
 }
 
@@ -238,6 +286,8 @@ a{
   h2{
     font: normal 1.5em/1.4 'QuicksandBook', Arial, sans-serif;
     color: shade($brown, 20);
+    padding: .5em 0;
+    height: 50px;
   }
   .body{
     max-width: 700px;
@@ -245,11 +295,83 @@ a{
   }
 }
 
+// FORMS -----------------------------------
+
+.insetTextField{
+  position: relative;
+  input[type=text]{
+    font-size: 1em;
+    height: 3em;
+    width: 100%;
+    padding: 1.2em 1em .8em 1em;
+    background: tint($marzipan, 90);
+    border: 1px solid shade($marzipan, 3);
+    //box-shadow: none;
+    @include border-radius(5px);
+  }
+  input[type=submit]{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 3em;
+    @include text-shadow(1px 1px 1px rgba(0,0,0,.2));
+    padding: 1em 2em;
+    display: block;
+    background: shade($marzipan, 3);
+    border: none;
+    @include transition-property("background-color");
+    @include transition-duration(".25s");
+    @include border-top-right-radius(5px);
+    @include border-bottom-right-radius(5px);
+    i{
+      margin: -2px 10px 0 0;
+    }
+    &:hover, &:focus{
+      outline: none;
+      background: adjust-lightness($yellow, 5);
+    }
+  }
+}
+
+// ALERTS -----------------------------------
+
 .alert{
   padding: 1em 1em 0.8em 1em;
   &.alert-success{
     background: tint($green, 60);
     border-color: $green;
     color: shade($green, 30);
+  }
+  &.alert-info{
+    background: tint($blue, 60);
+    border-color: $blue;
+    color: shade($blue, 30);
+  }
+  &.alert-error{
+    background: tint($red, 40);
+    border-color: $red;
+    color: shade($red, 50);
+    @include text-shadow(0 1px 0 rgba(255, 144, 145, 0.5));
+  }
+  &.alert-warn{
+    background: tint($yellow, 60);
+    border-color: $yellow;
+    color: shade($yellow, 30);
+  }
+}
+
+// WELCOME --------------------------
+
+.main{
+  &.welcome{
+    padding-left: 250px;
+  }
+}
+
+ul.non-list{
+  list-style: none;
+  margin: 0;
+  li{
+
   }
 }
