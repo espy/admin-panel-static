@@ -155,7 +155,7 @@
 154 silly registry.get cb [ 304,
 154 silly registry.get   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
 154 silly registry.get     etag: '"9H49JOIEE73WM1OF6M30FN69C"',
-154 silly registry.get     date: 'Wed, 19 Sep 2012 12:29:40 GMT',
+154 silly registry.get     date: 'Thu, 20 Sep 2012 12:59:44 GMT',
 154 silly registry.get     'content-length': '0' } ]
 155 verbose etag yeoman from cache
 156 silly addNameRange number 2 { name: 'yeoman', range: '', hasData: true }
@@ -184,7 +184,7 @@
 176 silly registry.get cb [ 304,
 176 silly registry.get   { server: 'CouchDB/1.2.0 (Erlang OTP/R15B)',
 176 silly registry.get     etag: '"9H49JOIEE73WM1OF6M30FN69C"',
-176 silly registry.get     date: 'Wed, 19 Sep 2012 12:29:41 GMT',
+176 silly registry.get     date: 'Thu, 20 Sep 2012 12:59:45 GMT',
 176 silly registry.get     'content-length': '0' } ]
 177 verbose etag yeoman/0.9.1 from cache
 178 verbose from cache /Users/espy/.npm/yeoman/0.9.1/package/package.json

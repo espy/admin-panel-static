@@ -90,6 +90,7 @@ input[type="url"],
 input[type="search"],
 input[type="tel"],
 input[type="color"],
+select,
 .uneditable-input {
   background-color: $inputBackground;
   border: 1px solid $inputBorder;
@@ -306,7 +307,6 @@ a{
     padding: 1.2em 1em .8em 1em;
     background: tint($marzipan, 90);
     border: 1px solid shade($marzipan, 3);
-    //box-shadow: none;
     @include border-radius(5px);
   }
   input[type=submit]{
@@ -372,6 +372,134 @@ ul.non-list{
   list-style: none;
   margin: 0;
   li{
-
   }
+}
+
+.main.menu{
+  ul{
+    list-style: none;
+    margin:0;
+    width: 80%;
+    padding: 0 0 25px 0;
+    border-bottom: 1px solid shade($marzipan, 10);
+    &:last-child{
+      border: none;
+    }
+    li{
+      @include text-shadow(1px 1px 1px rgba(0,0,0,.2));
+      a{
+        padding: 1.1em 1em 0.7em 1em;
+        display: block;
+        position: relative;
+        background: shade($marzipan, 3);
+        @include transition-property("background-color, padding");
+        @include transition-duration(".25s");
+        border-bottom: 1px solid shade($marzipan, 10);
+        i{
+          margin: -2px 10px 0 0;
+        }
+        &:hover, &:focus{
+          padding-left:1.25em;
+          outline: none;
+          background: adjust-lightness($yellow, 5);
+          span.status{
+            display: block;
+          }
+        }
+        span.status{
+          display: none;
+          right: 45px;
+          top: 16px;
+          position: absolute;
+          text-transform: uppercase;
+          font-size: .75em;
+        }
+      }
+      &:first-Child{
+        a{
+          @include border-top-left-radius(5px);
+          @include border-top-right-radius(5px);
+        }
+      }
+      &:last-Child{
+        a{
+          @include border-bottom-left-radius(5px);
+          @include border-bottom-right-radius(5px);
+          border-bottom: none;
+        }
+      }
+      &.app{
+        a{
+          &:after{
+            content: "";
+            margin-top:-2px;
+            width: 1em;
+            height: 1em;
+            background: tint($brown, 30);
+            border: 1px solid $brown;
+            float:right;
+            @include border-radius(50%);
+          }
+        }
+        &.running{
+          a{
+            &:after{
+              background: tint($green, 50);
+              border: 1px solid $green;
+            }
+          }
+        }
+        &.error{
+          a{
+            &:after{
+              background: tint($red, 30);
+              border: 1px solid $red;
+            }
+          }
+        }
+        &.inactive{
+          a{
+            &:after{
+              background: tint($marzipan, 30);
+              border: 1px solid $marzipan;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// FORMS -----------------------------
+
+textarea, input, select{
+  &.block{
+    width:100%;
+    display: block;
+  }
+}
+
+input[type=text]{
+  font-size: 1em;
+  height: 3em;
+  //width: 100%;
+  padding: 1.2em 1em .8em 1em;
+  background: tint($marzipan, 90);
+  border: 1px solid shade($marzipan, 3);
+  @include border-radius(5px);
+}
+
+textarea{
+  padding: .8em 1em .8em 1em;
+  line-height: 1.5em;
+  max-width: 100%;
+}
+
+select{
+  vertical-align: bottom;
+  height: 3em;
+  -webkit-appearance: none;
+  background: white url('/images/dk_arrows.png') no-repeat right;
+  padding: .9em;
+  width: 300px;
 }
